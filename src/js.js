@@ -1,36 +1,33 @@
 import images from "./src/gallery-items.js";
-console.log(images);
 
-// const listGallery = document.querySelector(".gallery js-gallery");
+const createGallery = (images) => {
+  
+  const elemLi = document.createElement("li");
+  elemLi.classList.add("gallery__item");
 
-// const elemLi = document.createElement("li");
-// elemLi.classList.add("gallery__item");
+  const elemRef = document.createElement("a");
+  elemRef.classList.add("gallery__link");
 
-// const elemRef = document.createElement("a");
-// elemRef.classList.add("gallery__link");
+  const elemImage = document.createElement("img");
+  elemImage.classList.add("gallery__image");
 
-// const elemImage = document.createElement("img");
-// elemImage.classList.add("gallery__image");
+  elemRef.appendChild(elemImage);
+  elemLi.appendChild(elemRef);
 
-// elemRef.appendChild(elemImage);
-// elemLi.appendChild(elemRef);
+    elemImage.setAttribute("src", image.preview);
+    elemImage.setAttribute("data-source", image.original);
+    elemImage.setAttribute("alt", image.description);
+    elemRef.setAttribute("href", image.original);
+  
+    return elemLi;
+    
+};
 
-// const createImage = images.map((image) => {
-//   elemImage.setAttribute("src", image.preview);
-//   elemImage.setAttribute("data-source", image.original);
-//   elemImage.setAttribute("alt", image.description);
-// });
-// listGallery.appendChild(elemLi);
 
-// const createRef = images.map((image) => {
-//   elemRef.setAttribute("href", image.original);
-// });
+const Gallery = images.map(image => createGallery(image));
+const listGallery = document.querySelector(".js-gallery");
 
-// const createGallery = images.map((image) => {
-//     return `<li class = "class-li"><img class = "class-img" src =${image.url}, alt = ${image.alt}></li>`;
-// });
-
-// listGallery.insertAdjacentHTML("afterbegin", createGallery);
+listGallery.append(...Gallery);
 
 /* <li class="gallery__item">
     <a
