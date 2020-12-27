@@ -46,7 +46,7 @@ const btnClose = divLightbox.querySelector(
 );
 btnClose.addEventListener("click", closeLargeImage);
 function closeLargeImage() {
-  //   divLightbox.classList.remove("is-open");
+  divLightbox.classList.remove("is-open");
   const imgLightbox = divLightbox.querySelector(".lightbox__image");
   imgLightbox.src = "";
 }
